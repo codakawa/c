@@ -1,0 +1,11 @@
+.footer {
+    width: 100%;
+    height: 150px;
+    background-color: blanchedalmond;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
