@@ -6,6 +6,7 @@ import List from './components/List/List';
 import Input from './components/Input/Input';
 
 function App() {
+  const defaultInputValue = "";
   const [list, setList]  = useState([
     {
         id:Math.round((Math.random() * 100)) , 
@@ -35,20 +36,24 @@ function App() {
     setList(list.filter(item => item.id !== id))
   }
 
-  const addNewTask = () => {
-    setList((prev) => [...prev, {
-      id: Math.floor(Math.random() * 100),
-      task: newTask,
-      editing: false,
-      completed: false
-    }])
-  }
-    
   const [isShow, show] = useState(false);
   function switchModal() {
     show(!isShow);
   }
 
+  const addNewTask = () => {
+    if(newTask && newTask !== " ") {
+      setList((prev) => [...prev, {
+        id: Math.floor(Math.random() * 100),
+        task: newTask,
+        editing: false,
+        completed: false
+      }])
+      switchModal()
+      setNewTask("")
+    }
+  }
+    
   let [inputForState, inputChange] = useState("");
   const updInput = (e) => {
     inputChange((e.target.value).toLowerCase());
@@ -62,7 +67,7 @@ function App() {
 
   return (
     <div className="App">
-      {isShow && <Modal switchModal={switchModal} changeNewTask={changeNewTask} addNewTask={addNewTask}/>}
+      {isShow && <Modal switchModal={switchModal} changeNewTask={changeNewTask} addNewTask={addNewTask} defaultInputValue={defaultInputValue}/>}
 
       <Button clickFunc={switchModal}>
         Add
