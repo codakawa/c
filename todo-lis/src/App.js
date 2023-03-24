@@ -6,19 +6,43 @@ import List from './components/List/List';
 import Input from './components/Input/Input';
 
 function App() {
-  let list = [
+  const [list, setList]  = useState([
     {
-        id:1 , 
-        task: 'coding'
+        id:Math.round((Math.random() * 100)) , 
+        task: 'coding',
+        completed: false,
+        editing: false
     },
     {
-        id:2,
-        task: 'eat'
+        id:Math.round((Math.random() * 100)),
+        task: 'eat',
+        completed: false,
+        editing: false
     },
     {
-        id:3,
-        task: 'sleep'
-    }]
+        id:Math.round((Math.random() * 100)),
+        task: 'sleep',
+        completed: false,
+        editing: false
+    }])
+
+  const [newTask, setNewTask] = useState('');
+  const changeNewTask = (e) => {
+    setNewTask(e.target.value);
+  }
+
+  const deleteTask = (id) => {
+    setList(list.filter(item => item.id !== id))
+  }
+
+  const addNewTask = () => {
+    setList((prev) => [...prev, {
+      id: Math.floor(Math.random() * 100),
+      task: newTask,
+      editing: false,
+      completed: false
+    }])
+  }
     
   const [isShow, show] = useState(false);
   function switchModal() {
@@ -26,9 +50,9 @@ function App() {
   }
 
   let [inputForState, inputChange] = useState("");
-  function updInput(inpValue) {
-    inputChange(inputForState = inpValue);
-    console.log(inputForState);
+  const updInput = (e) => {
+    inputChange((e.target.value).toLowerCase());
+    
   }
 
   // const [listForState, updList] = useState(list)
@@ -38,7 +62,7 @@ function App() {
 
   return (
     <div className="App">
-      {isShow && <Modal switchModal={switchModal}/>}
+      {isShow && <Modal switchModal={switchModal} changeNewTask={changeNewTask} addNewTask={addNewTask}/>}
 
       <Button clickFunc={switchModal}>
         Add
@@ -46,7 +70,7 @@ function App() {
 
       <Input name="search" placeholder="Search for tasks..." onChangeFunc={updInput}/>
   
-      <List list={list} />      
+      <List list={list} deleteFunc={deleteTask} searchTask={inputForState}/>      
     </div>
   );
 }
