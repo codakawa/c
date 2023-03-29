@@ -1,0 +1,15 @@
+.btn {
+    width: 100px;
+    height: 35px;
+    /* padding: 8px; */
+    background-color: #019e77;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: whitesmoke;
+    transition-duration: 250ms;
+}
+
+.btn:hover {
+    transform: scale(1.2, 1.2);
+}
