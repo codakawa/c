@@ -10,7 +10,7 @@ function List({list, deleteFunc, searchTask, editTaskStart, listOfEdits, onChang
     return (
         <div className={classes.list}>
             {searchedList.map((item, i) => 
-            <div className={classes.listBlock} key={item.id}>
+            <div className={item.completed ? classes.listBlock + " " + classes.linedBlock : classes.listBlock} key={item.id}>
                 <span>{++i}</span>
                 <div className={classes.listInner}>
 
@@ -19,12 +19,12 @@ function List({list, deleteFunc, searchTask, editTaskStart, listOfEdits, onChang
                         <span className={item.completed ? classes.lined : classes.taskText}>{item.task}</span>}
                             
                     {(listOfEdits.id === item.id) && 
-                    <Button clickFunc={saveEditedTask}>Done</Button>}
+                    <Button clickFunc={() => saveEditedTask(item.task)} type={"green"}>Save</Button>}
                     {!(listOfEdits.id === item.id) && 
-                    <Button clickFunc={() => editTaskStart(item.id)}>Edit</Button>}
+                    <Button clickFunc={() => editTaskStart(item.id)} type={"blue"}>Edit</Button>}
 
-                    <Button clickFunc={() => doneFunc(item.id)}>Done</Button>
-                    <Button clickFunc={() => deleteFunc(item.id)}>Delete</Button>
+                    <Button clickFunc={() => doneFunc(item.id)} type={"green"}>Done</Button>
+                    <Button clickFunc={() => deleteFunc(item.id)} type={"red"}>Delete</Button>
                 </div>
             </div>)}
         </div>

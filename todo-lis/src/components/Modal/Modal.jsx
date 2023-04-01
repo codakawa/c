@@ -21,8 +21,8 @@ function Modal({switchModal, changeNewTask, addNewTask}) {
             <div className={classes.wrapper}></div>
             <div className={classes.modal}>
                 <Input onChangeFunc={changeNewTask} name="add" placeholder="Your task..."/>
-                <Button clickFunc={addNewTask}>Add task</Button>
-                <Button clickFunc={switchModal}>Close</Button>
+                <Button clickFunc={addNewTask} type={"green"}>Add task</Button>
+                <Button clickFunc={switchModal} type={"red"}>Close</Button>
             </div>
         </React.Fragment>
     )

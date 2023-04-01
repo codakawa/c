@@ -34,3 +34,7 @@
     text-decoration: line-through;
     text-decoration-color: black;
 }
+
+.linedBlock {
+    background-color: #ff8282;
+}

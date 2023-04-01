@@ -1,9 +1,9 @@
 import React from 'react'
 import classes from "./button.module.css"
 
-const Button = ({children, clickFunc}) => {
+const Button = ({children, clickFunc, type}) => {
   return (
-    <button className={classes.btn} onClick={clickFunc}>
+    <button className={classes[ type ]} onClick={clickFunc}>
         {children}
     </button>
   )
