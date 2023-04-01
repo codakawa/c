@@ -121,11 +121,10 @@ function App() {
   
   const [listToRender, setListToRender] = useState(list);
 
-  let copyOfList = list.slice(0);
   const changeFilter = (e) => {
     checkCompleted()
-    const listNotDoned = copyOfList.filter(item => !idListOfCompleted.includes(item.id))
-    const listDoned = copyOfList.filter(item => idListOfCompleted.includes(item.id))
+    const listNotDoned = list.filter(item => !idListOfCompleted.includes(item.id))
+    const listDoned = list.filter(item => idListOfCompleted.includes(item.id))
 
     console.log(e.target.value);
     if(e.target.value === "doned") {
