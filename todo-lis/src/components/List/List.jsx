@@ -5,7 +5,7 @@ import Input from '../Input/Input'
 
 function List({list, deleteFunc, searchTask, editTaskStart, listOfEdits, onChangeFunc, saveEditedTask, doneFunc}) {
     console.log(list);
-    const searchedList = list.filter(item => item.task.toLowerCase().includes(searchTask))
+    const searchedList = list.filter(item => item.title.toLowerCase().includes(searchTask))
 
     return (
         <div className={classes.list}>
@@ -15,11 +15,11 @@ function List({list, deleteFunc, searchTask, editTaskStart, listOfEdits, onChang
                 <div className={classes.listInner}>
 
                     {(listOfEdits.id === item.id) ?
-                        <Input value={item.task} onChangeFunc={onChangeFunc}/> :
-                        <span className={item.completed ? classes.lined : classes.taskText}>{item.task}</span>}
+                        <Input value={item.title} onChangeFunc={onChangeFunc}/> :
+                        <span className={item.completed ? classes.lined : classes.taskText}>{item.title}</span>}
                             
                     {(listOfEdits.id === item.id) && 
-                    <Button clickFunc={() => saveEditedTask(item.task)} type={"green"}>Save</Button>}
+                    <Button clickFunc={() => saveEditedTask(item.title)} type={"green"}>Save</Button>}
                     {!(listOfEdits.id === item.id) && 
                     <Button clickFunc={() => editTaskStart(item.id)} type={"blue"}>Edit</Button>}
 

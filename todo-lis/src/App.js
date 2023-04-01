@@ -9,6 +9,15 @@ import classes from "./components/List/list.module.css";
 
 function App() {
 
+  const fetchData = async() => {
+    const data = await fetch("https://jsonplaceholder.typicode.com/todos/?_limit=10&_start=0")
+    const response = await data.json()
+    setList(response)
+    console.log(response);
+  }
+
+  fetchData()
+
   const [list, setList]  = useState([])
 
   const [listOfEdits, changeListOfEdits] = useState({
