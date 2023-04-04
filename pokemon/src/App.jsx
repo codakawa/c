@@ -20,7 +20,7 @@ function App() {
     
   const [ theme, setTheme ] = useState('light')
   const [ pokemonList, setPokemonList ] = useState([]);
-  let [offset, setOffset] = useState(135);
+  let [offset, setOffset] = useState(0);
   // prev.onclick = (e) => {
   //   if(offset <= 10) {
   //     setOffset(0)
@@ -44,14 +44,14 @@ function App() {
     setTheme(newTheme)
   }
 
-  const a = (data) => {
+  const setPokemonInfo = (data) => {
     setPokemonList(data.results)
     setCount(data.count)
   }
 
   useEffect(() => {
     fetchPokemons(limit, (offset*10))
-    .then((pokeList) => a(pokeList))
+    .then((pokeList) => setPokemonInfo(pokeList))
     
     
   }, [offset])
