@@ -1,14 +1,16 @@
 import React from 'react'
 
-const Pagination = (pageCount) => {
-    const chikl = () => {
-        for(let i = 0; i <= pageCount; i++) {
-            
-        }
-    }
+const Pagination = (
+    {pageCount, 
+        page,
+         handleNext,
+          handlePrev }
+    ) => {
   return (
-    <div>
-        {}
+    <div className='pagination'>
+        <button onClick={handlePrev}>Prev</button>
+        <div className='pageCount'>{page} / {pageCount}</div> 
+        <button onClick={handleNext}>Next</button>
     </div>
   )
 }

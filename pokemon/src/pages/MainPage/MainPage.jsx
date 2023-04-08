@@ -3,6 +3,7 @@ import { fetchPokemons } from "api/fetchPokemons";
 import PokemonCard from "components/PokemonCard/PokemonCard";
 import Button from "components/Button/Button";
 import { Link, Router } from "react-router-dom";
+import Pagination from "components/Pagination/Pagination";
 
 const MainPage = () => {
     const limit = 10;
@@ -62,9 +63,7 @@ const MainPage = () => {
             )}
           </div>
           <div className="page">
-            <Button clickFunc={prevPage}>PREV</Button>
-            <span className="pageCount">{offset+1} / {countOfPages}</span>
-            <Button clickFunc={nextPage}>NEXT</Button>
+            <Pagination pageCount={countOfPages} page={offset+1} handlePrev={prevPage} handleNext={nextPage}/>
           </div>        
         </div>
     );

@@ -9,7 +9,7 @@
 
 .app {
   width: 100wh;
-  height: 100vh;
+  height: 120vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +21,19 @@
 .container  {
   max-width: 1300px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.page {
+  margin: 0 auto;
+}
+
+.pageCount {
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .pokemonList {
@@ -78,6 +91,7 @@ button {
 
 .pokemonInfo .image {
   height: 420px;
+  width: 410px;
   padding: 35px;
   background-color: var(--card-background);
 }
