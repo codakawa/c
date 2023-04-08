@@ -8,12 +8,14 @@
 }
 
 .app {
-  width: 100%;
+  width: 100wh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--background-color);
   color: var(--text-color);
+  flex-direction: column;
 }
 
 .container  {
@@ -55,7 +57,7 @@ button {
   justify-content: center;
   gap: 20px;
   align-items: center;
-
+  cursor: pointer;
 }
 
 .pokemonCard img {
@@ -65,4 +67,40 @@ button {
 
 .pokemonCard span {
   font-size: 22px;
+}
+
+.pokemonInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 200px;
+  margin-top: 50px;
+}
+
+.pokemonInfo .image {
+  height: 420px;
+  padding: 35px;
+  background-color: var(--card-background);
+}
+
+.stats {
+  font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 30px;
+}
+
+.info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
