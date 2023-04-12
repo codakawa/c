@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../DZ2_Aset_25-03"
 		}
 	],
 	"settings": {}

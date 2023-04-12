@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import React from "react";
 import MainPage from "pages/MainPage/MainPage";
 import PokemonInfo from "pages/PokemonInfo/PokemonInfo";
+import AboutPage from "pages/AboutPage/AboutPage";
 
 function App() {
   const [ theme, setTheme ] = useState('light')
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />}/>
         <Route path="/:id" element={<PokemonInfo url={"https://pokeapi.co/api/v2/"}/>}/>
+        <Route path="/about" element={<AboutPage />}/>
       </Routes>
     </div>
   );

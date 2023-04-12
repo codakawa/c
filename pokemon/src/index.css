@@ -9,7 +9,7 @@
 
 .app {
   width: 100wh;
-  height: 120vh;
+  /* height: 120vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +42,10 @@
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
 }
 
 button {
